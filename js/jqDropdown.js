@@ -68,6 +68,7 @@
 	$.jqDropdown.prototype = {
 
 		_init : function( options ) {
+			this.$el.attr( 'name', 'cd-dropdown' ).attr( 'class', 'cd-select' );
 			this.options = $.extend( true, {}, $.jqDropdown.defaults, options );
 			this._layout();
 			this._initEvents();
