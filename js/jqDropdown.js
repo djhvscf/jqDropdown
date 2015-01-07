@@ -232,8 +232,8 @@
 		},
 		_createliElement : function(classes, val, label) { 
 			return classes !== undefined ? 
-							this._sprintf( '<li data-value="%s"><span class="%s">%s</span></li>', val, classes, label) :
-							this._sprintf( '<li data-value="%s"><span>%s</span></li>', val, label );
+					this._sprintf( '<li data-value="%s"><span class="%s">%s</span></li>', val, classes, label) :
+					this._sprintf( '<li data-value="%s"><span>%s</span></li>', val, label );
 							
 		}
 
