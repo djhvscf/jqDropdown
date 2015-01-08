@@ -46,8 +46,11 @@
 
 	// the options
 	$.jqDropdown.defaults = {
+		// speed showing the elements
 		speed : 300,
+		// efects when the elements are opening
 		easing : 'ease',
+		// space between elements
 		gutter : 0,
 		// initial stack effect
 		stack : true,
@@ -55,13 +58,11 @@
 		delay : 0,
 		// random angle and positions for the options
 		random : false,
-		// rotated [right||left||false] : the options will be rotated to thr right side or left side.
-		// make sure to tune the transform origin in the stylesheet
-		rotated : false,
 		// effect to slide in the options. value is the margin to start with
 		slidingIn : false,
+		// if you want to get the element selected
 		onOptionSelect : $.noop,
-		//Delete the default option like 'Select an option'
+		// delete the default option like 'Select an option'
 		deleteDefaultOption : true
 	};
 
