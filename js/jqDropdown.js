@@ -48,12 +48,12 @@
 	$.jqDropdown.defaults = {
 		// speed showing the elements
 		speed : 300,
-		// efects when the elements are opening
+		// effects when the elements are opening
 		easing : 'ease',
 		// space between elements
 		gutter : 0,
 		// initial stack effect
-		stack : true,
+		stack : false,
 		// delay between each option animation
 		delay : 0,
 		// random angle and positions for the options
@@ -62,8 +62,12 @@
 		slidingIn : false,
 		// if you want to get the element selected
 		onOptionSelect : $.noop,
+		// if you want to get the open event
+		onDropdownOpened : $.noop,
+		// if you want to get the close event
+		onDropdownClosed : $.noop,
 		// delete the default option like 'Select an option'
-		deleteDefaultOption : true
+		deleteDefaultOption : false
 	};
 
 	$.jqDropdown.prototype = {
@@ -202,7 +206,7 @@
 
 			} );
 			this.opened = true;
-
+			self.options.onDropdownOpened( this );			
 		},
 		close : function() {
 			var self = this;
@@ -214,7 +218,7 @@
 			}
 			this._positionOpts( true );
 			this.opened = false;
-
+			self.options.onDropdownClosed( );
 		},
 		_sprintf : function(str) {		
 			var args = arguments,
