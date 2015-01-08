@@ -3,4 +3,4 @@ A jQuery plugin for transforming select inputs into drop-down lists with some si
 
 
 ### Inspiration
-Codrops article  https://github.com/codrops/SelectInspiration
+Codrops article http://tympanus.net/Development/SimpleDropDownEffects/
