@@ -1,5 +1,5 @@
-$.jqDropdown.themes.defaultTheme = {
-	name: 'defaultTheme',
+$.jqDropdown.themes.blueTheme = {
+	name: 'blueTheme',
 	head: $('head'),
 	styleTagStart: '<style type="text/css">',
 	styleTagEnd: '</style>',
@@ -19,7 +19,7 @@ $.jqDropdown.themes.defaultTheme = {
 					'width: 100%;',
 				'}',
 				'.cd-active.cd-dropdown > span {',
-					'color: #fc756f;',
+					'color: #4d8c9d;',
 				'}',
 				'.cd-active.cd-dropdown > span,',
 				'.cd-active.cd-dropdown ul li span {',
@@ -33,7 +33,7 @@ $.jqDropdown.themes.defaultTheme = {
 					'transition: all 0.2s linear 0s;',
 				'}',
 				'.cd-active.cd-dropdown ul li span:hover {',
-					'background: #fc756f;',
+					'background: #4d8c9d;',
 					'color: #fff;',
 				'}'].join('')		
 	},

@@ -44,6 +44,8 @@
 		this._init( options );
 	};
 
+	$.jqDropdown.themes = {};
+	
 	// the options
 	$.jqDropdown.defaults = {
 		// speed showing the elements
@@ -67,7 +69,9 @@
 		// if you want to get the close event
 		onDropdownClosed : $.noop,
 		// delete the default option like 'Select an option'
-		deleteDefaultOption : false
+		deleteDefaultOption : false,
+		// theme to apply
+		theme : 'blueTheme',
 	};
 
 	$.jqDropdown.prototype = {
@@ -75,9 +79,16 @@
 		_init : function( options ) {
 			this.$el.attr( 'name', 'cd-dropdown' ).attr( 'class', 'cd-select' );
 			this.options = $.extend( true, {}, $.jqDropdown.defaults, options );
+			this._initTheme();
 			this._layout();
 			this._initEvents();
-
+		},
+		_initTheme : function() {
+			if($.jqDropdown.themes[this.options.theme]) {
+				$.jqDropdown.themes[this.options.theme].init(this._requiredStyle);
+			} else {
+                throw Error ('Theme is not valid');
+			}
 		},
 		_layout : function() {
 			var self = this;
@@ -241,7 +252,90 @@
 					this._sprintf( '<li data-value="%s"><span class="%s">%s</span></li>', val, classes, label) :
 					this._sprintf( '<li data-value="%s"><span>%s</span></li>', val, label );
 							
-		}
+		},
+		_requiredStyle : [
+							'*,',
+							'*:after,',
+							'*:before {',
+								'-webkit-box-sizing: border-box;',
+								'-moz-box-sizing: border-box;',
+								'box-sizing: border-box;',
+								'padding: 0;',
+								'margin: 0;',
+							'}',
+							'.cd-dropdown,',
+							'.cd-select {',
+								'position: relative;',
+								'width: 300px;',
+								'margin: 20px auto;',
+								'display: block;',
+							'}',
+							'.cd-dropdown > span {',
+								'width: 100%;',
+								'height: 60px;',
+								'line-height: 60px;',
+								'color: #999;',
+								'font-weight: 700;',
+								'font-size: 16px;',
+								'background: #fff;',
+								'display: block;',
+								'padding: 0 50px 0 30px;',
+								'position: relative;',
+								'cursor: pointer;',
+							'}',
+							'.cd-dropdown > span:after {',
+								'content: "\\25BC";',
+								'position: absolute;',
+								'right: 0px;',
+								'top: 15%;',
+								'width: 50px;',
+								'text-align: center;',
+								'font-size: 12px;',
+								'padding: 10px;',
+								'height: 70%;',
+								'line-height: 24px;',
+								'border-left: 1px solid #ddd;',
+							'}',
+							'.cd-dropdown.cd-active > span:after {',
+								'content: "\\25B2";',
+							'}',
+							'.cd-dropdown ul {',
+								'list-style-type: none;',
+								'margin: 0;',
+								'padding: 0;',
+								'display: block;',
+								'position: relative;',
+							'}',
+							'.cd-dropdown ul li {',
+								'display: block;',
+							'}',
+							'.cd-dropdown ul li span {',
+								'width: 100%;',
+								'background: #fff;',
+								'line-height: 60px;',
+								'padding: 0 30px 0 75px;',
+								'display: block;',
+								'color: #bcbcbc;',
+								'cursor: pointer;',
+								'font-weight: 700;',
+							'}',
+							'.cd-dropdown > span,',
+							'.cd-dropdown ul li span {',
+								'-webkit-backface-visibility: hidden;',
+								'-webkit-touch-callout: none;',
+								'-webkit-user-select: none;',
+								'-khtml-user-select: none;',
+								'-moz-user-select: none;',
+								'-ms-user-select: none;',
+								'user-select: none;',
+							'}',
+							'.cd-dropdown > span span[class^="icon-"],',
+							'.cd-dropdown > span span[class*=" icon-"]{',
+								'padding: 0 30px 0 45px;',
+							'}',
+							'.cd-select {',
+								'border: 1px solid #ddd;',
+							'}'].join('')
 
 	}
 
