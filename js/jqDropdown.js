@@ -125,7 +125,7 @@
 
 				if ( val !== -1 ) { //Not default option
 					optshtml += self._createliElement( classes, val, label );
-				} else if ( !self.options.deleteDefaultOption ) {
+				} else if ( !self.options.deleteDefaultOption ) { //Deletes the default option
 					optshtml += self._createliElement( classes, val, label );
 				}
 
